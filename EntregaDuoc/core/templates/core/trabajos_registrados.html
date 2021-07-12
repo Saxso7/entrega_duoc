@@ -47,7 +47,56 @@
         </nav>
     </header>
     <main class="container-fluid">
-        
+        <div class="row">
+            <h1 class="bg-footer text-center text-white pb-2">Trabajos Registrados</h1>
+        </div>
+        <div class="row">
+            <table border=1>
+                   <tr>
+                       <th scope="col">
+                           Nombre Trabajo
+                       </th>
+                       <td scope="col">
+                           Descripcion
+                       </th>
+                       <th scope="col">
+                           Costo del Trabajo
+                       </th>
+                       <th scope="col">
+                           Fecha Trabajo
+                       </th>
+                       <th scope="col">
+                           Opciones
+                       </th>
+                   </tr>
+                   {% for tra in registrar %}
+                   <tr>
+                       <td>
+                           {{tra.nombreTrabajo}}
+                       </td>
+                       <td>
+                           {{tra.descripcion}}
+                       </td>
+                       <td>
+                           {{tra.costoTrabajo}}
+                       </td>
+                       <td>
+                           {{tra.fechaTrabajo}}
+                       </td>
+                       <td>
+                           <a href="{% url 'modificar' tra.nombreTrabajo %}">Modificar</a>
+                           <a href="{% url 'form_del_trabajo' tra.nombreTrabajo %}">Eliminar</a>
+                       </td>
+                   </tr>
+                   {% endfor %}
+            </table>
+        </div>
+        <div class="pb-3 pt-3">
+            <h2 class="text-center mb-5 mt-5">Mecanica automotriz</h2>
+            <p class="ps-5 pe-5 text-center mse-25"><img src="{% static 'img/llave-mecanica.png'%}" class="card-img-top img-responsive mb-5" width="300px" height="300px"> Como empresa estamos siempre a favor de nuestros clientes, asi mejorando nuestros tiempos de respuesta y acomodandonos a su econmomia.
+                
+            </p>
+        </div>
     </main>
 
     <footer class="bg-footer text-white pt-5 pb-4 mt-10">
